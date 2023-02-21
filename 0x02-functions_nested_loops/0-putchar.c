@@ -1,4 +1,4 @@
-#include <main.mh>
+#include "main.mh"
 
 /**
  * main - Entry point
