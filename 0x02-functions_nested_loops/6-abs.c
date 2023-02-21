@@ -6,7 +6,7 @@
 *@return The absolute value of the input integer.
  */
 
-iint absolute_value(int num)
+int absolute_value(int num)
 
 {
 	if (num < 0)
