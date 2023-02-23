@@ -2,7 +2,7 @@
 
 /**
  * _isdigit - check the given value is a digit
- * @c: values to check
+ * @c: values to be checked
  *
  * Return: 1 if digit else 0 (False)
  *
