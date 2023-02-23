@@ -1,13 +1,11 @@
 #include <stdio.h>
 
 /**
- * main - Prints the largest prime factor of the number 612852475143
+ * main - entry point
  *
  * Return: always 0 (sucess)
  */
-
 int main(void)
-
 {
 	unsigned long int num = 612852475143;
 	unsigned long int prim;
