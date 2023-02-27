@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * puts_half - Prints half of a string
@@ -25,6 +25,7 @@ void puts_half(char *str)
 	else
 	{
 	k = j / 2;
+	k += 1;
 	}
 
 	for (; k < j; k++)
