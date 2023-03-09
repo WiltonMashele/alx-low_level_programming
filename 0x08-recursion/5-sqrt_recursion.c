@@ -1,60 +1,34 @@
 #include "main.h"
+#include <stdio.h>
+
+int _sqrt(int n, int i);
 
 /**
- * _sqrt_recursion - returns the natural square root of a number
- * @n: the number to find the square root of
- * sqrt: square root
- *
- * Return: the natural sqrt of n, or -1 if n does not have a natural sqrt
- */
-
+  * _sqrt_recursion - Returns the natural square root of a number
+  * @n: number to calculate the natural square root
+  *
+  * Return: the natural square root
+  */
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-	{
-	return (-1);	/*Error case: n is negative*/
-	}
-	else if (n <= 1)
-	{
-	return (n);	/*Base case: n is 0 or 1*/
-	}
-	else
-	{
-	return (_sqrt_helper(n, 1, n));	/*Recursive case*/
-	}
+	return (_sqrt(n, 1));
 }
 
 /**
- * _sqrt_helper - helper function for _sqrt_recursion
- * sqrt: square root
- * @n: the number to find the square root of
- * @low: the lowest possible square root for n
- * @high: the highest possible square root for n
- *
- * Return: the natural sqrt of n, or -1 if n does not have a natural sqrt
- */
-
-int _sqrt_helper(int n, int low, int high)
+  * _sqrt - Calculates natural square root
+  * @n: number to calculate the square root
+  * @i: iterate number
+  *
+  * Return: the natural square root
+  */
+int _sqrt(int n, int i)
 {
-	int mid = (low + high) / 2;
+	int sqrt = i * i;
 
-	if (mid * mid == n)
-	{
-	return (mid);	/*Base case: mid is the square root of n*/
-	}
-	else if (mid * mid > n)
-	{
-	return (_sqrt_helper(n, low, mid - 1));	/*Recursive: search the lower half*/
-	}
-	else
-	{
-	if ((mid + 1) * (mid + 1) > n)
-	{
-	return (mid);	/*Base case: mid+1 is greater than the square root of n*/
-	}
-	else
-	{
-	return (_sqrt_helper(n, mid + 1, high));	/*Recursive: search the upper half*/
-	}
-	}
+	if (sqrt > n)
+		return (-1);
+
+	if (sqrt == n)
+		return (i);
+	return (_sqrt(n, i + 1));
 }
