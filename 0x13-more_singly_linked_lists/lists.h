@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 
+#include <stddef.h> /* For size_t */
+
 /**
 *
 * struct listint_s - Singly linked list
@@ -13,10 +15,11 @@
 *
 * for alx project
 */
+
 typedef struct listint_s
 {
-int n;
-struct listint_s *next;
+	int n;
+	struct listint_s *next;
 } listint_t;
 
 /* Function prototypes for singly linked list with integer data */
