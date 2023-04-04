@@ -1,10 +1,7 @@
-#ifndef STDLIB_H
-#define STDLIB_H
-#include <stdlib.h>
-#endif
-
 #ifndef _LISTS_H
 #define _LISTS_H
+
+#include <stdlib.h>
 
 /**
 *
@@ -35,4 +32,4 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *reverse_listint(listint_t **head);
 size_t print_listint_safe(const listint_t *head);
 
-#endif
+#endif /* LISTS_H */
