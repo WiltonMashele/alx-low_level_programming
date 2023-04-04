@@ -10,6 +10,8 @@
 * @next: Points to the next node
 * Description: This structure defines a node in a singly linked list.
 * It contains an integer data and a pointer to the next node in the list.
+*
+* for alx project
 */
 typedef struct listint_s
 {
