@@ -3,18 +3,19 @@
 
 /**
  * print_binary - prints the binary representation of a number.
- * bitCount - counts the number of set bits.
+ * mask - used to extract number of n.
  * @n : input number
- *
+ * Shift the mask to the right by 1 bit
  */
 
 void print_binary(unsigned long int n)
 
 {
-	int bitCount = sizeof(unsigned long int) * 8;
+	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
 
-	while (bitCount--)
+	while (mask)
 	{
-		printf("%d", (n & (1UL << bitCount)) ? 1 : 0);
+	printf("%d", (n & mask) ? 1 : 0);
+	mask >>= 1;
 	}
 }
