@@ -11,11 +11,15 @@
 void print_binary(unsigned long int n)
 
 {
-	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
+	int bit_count = sizeof(unsigned long int) * 8;
+	int i;
 
-	while (mask)
+	for (i = bit_count - 1; i >= 0; i --)
 	{
-	printf("%d", (n & mask) ? 1 : 0);
-	mask >>= 1;
+		unsigned long int mask = 1UL << i;
+		if (n & mask)
+			putchar('1');
+		else
+			putchar('0');
 	}
 }
