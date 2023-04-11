@@ -11,7 +11,7 @@
 void print_binary(unsigned long int n)
 
 {
-	int bit_count = sizeof(unsigned long int) * 8;
+	int size = sizeof(unsigned long int) * 8;
 
 	for (int i = size - 1; i >= 0; i--)
 	{
