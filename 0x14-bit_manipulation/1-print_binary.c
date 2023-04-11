@@ -3,7 +3,7 @@
 
 /**
  * print_binary - prints the binary representation of a number.
- * mask - used to extract number of n.
+ * bit - to store value of a single bit
  * @n : input number
  * Shift the mask to the right by 1 bit
  */
@@ -15,8 +15,7 @@ void print_binary(unsigned long int n)
 
 	for (int i = size - 1; i >= 0; i--)
 	{
-	unsigned long int mask = 1UL << i;
-	unsigned long bit = (n & mask) ? 1UL : OUL;
+	unsigned long bit = (n >> 1) & 1;
 
 	if (bit)
 	{
