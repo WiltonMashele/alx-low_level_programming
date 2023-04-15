@@ -1,9 +1,12 @@
 #include "main.h"
-#include <stdio>
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * appends_text_to_file  - appends text at the end of a life.
- * filename is the name of the file.
+ * @param filename The name of the file to append text to.
+ * @param text_content The text content to append to the file.
  *
  * Return: 1 on success and -1 on failure.
  */
@@ -11,32 +14,39 @@
 int append_text_to_file(const char *filename, char *text_content)
 
 {
+	int i = 0; 
+	int bytes_written;
+	int file;
+
 	if (filename == NULL)
 	{
 		return (-1);
 	}
 
-	FILE *file = fopen(filename, "a");
+	if (text_content == NULL)
+	text_content = "";
 
-	if (file == NULL)
+	while (text_content[i] != '\0')
 	{
-		return (-1);
+	i++;
 	}
 
-	if(text_content == NULL)
+	file = open(filename, O_WRONLY | O_APPEND);
+
+	if (file == -1)
 	{
-		fclose(file);
-		return (1);
+	return (-1);
 	}
 
-	int results = fputs(text_content, file)
+	bytes_written = write(file, text_content, i);
 
-	if (result == EOF)
+	close(file);
+
+	if (bytes_written != i)
 	{
-		fclose(file);
-		return (-1);
+	return (-1);
 	}
 
-	fclose(file);
 	return (1);
+
 }
