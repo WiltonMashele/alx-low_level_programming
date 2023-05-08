@@ -24,10 +24,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (!filename)
 	{
+	free(text);
 	return (0);
 	}
 
-	file = open(filename, O_RDONLY);
+	int file = open(filename, O_RDONLY);
+
 	if (file == -1)
 	{
 	free(text);
