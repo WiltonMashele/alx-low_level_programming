@@ -1,45 +1,31 @@
 #include "lists.h"
-
-/**
- * struct dlistint_s - doubly linked list
- * @n: integer
- * @prev: points to the previous node
- * @next: points to the next node
- *
- * Description: doubly linked list node structure
- *
- */
-typedef struct dlistint_s
-{
-    int n;
-    struct dlistint_s *prev;
-    struct dlistint_s *next;
-} dlistint_t;
+#include <stdlib.h>
 
 /**
  * dlistint_t *add_dnodeint(dlistint_t **head, const int n); - adds
  * a new node at the beginning of a dlistint_t list.
- *
+ * @head: pointer to the head of the list
+ * @n: integer value to be stored in the new node
  * Return: the address of the new element, or NULL if it failed
  */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t* temp = malloc(sizeof(dlistint_t));
 	if (temp == NULL)
 	{
-	return(NULL);
+	return (NULL);
 	}
 
 	temp->prev = NULL;
-	temp->data = n;
+	temp->n = n;
 	temp->next = *head;
 
 	if (*head != NULL)
         {
-        (*head)->pre = temp;
+        (*head)->prev = temp;
         }
 
 	*head = temp;
-	return(temp);
+	return (temp);
 }
