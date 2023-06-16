@@ -25,11 +25,11 @@ typedef struct dlistint_s
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n);
 {
-	struct dlistint_t* temp = malloc(sizeof(dlistint_t));
+	struct node* temp = malloc(sizeof(dlistint_t));
 	temp->prev = NULL;
 	temp->data = data;
 	temp->next = NULL;
 	temp->next = head head->prev = temp;
 	head = temp;
-	return (head);
+	return(head);
 }
