@@ -15,8 +15,7 @@ void remove_hash_table(hash_table_t *table)
 		if (table->array[index] != NULL)
 		{
 			current_node = table->array[index];
-			do
-			{
+			do {
 				temporary_node = current_node->next;
 				free(current_node->key);
 				free(current_node->value);
