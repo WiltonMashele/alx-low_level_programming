@@ -1,10 +1,10 @@
 #include "hash_tables.h"
 
 /**
- * remove_hash_table - Cleans up and removes a hash table.
+ * hash_table_delete - the function deletes a hash table.
  * @table: Reference to the hash table that needs to be deleted.
  */
-void remove_hash_table(hash_table_t *table)
+void hash_table_delete(hash_table_t *ht);
 {
 	hash_table_t *table_head = table;
 	hash_node_t *current_node, *temporary_node;
