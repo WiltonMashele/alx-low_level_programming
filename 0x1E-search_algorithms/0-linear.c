@@ -1,8 +1,3 @@
-/*
- * File: 0-linear.c
- * Auth: Wilton Mashele
- */
-
 #include "search_algos.h"
 /**
  * linear_search - Perform a linear search for a value in an integer array.
@@ -17,17 +12,14 @@
  */
 int linear_search(int *array, size_t size, int value)
 {
-	if (array == NULL)
-	return (-1);
+	if (array == NULL || size == 0)
+		return (-1);
 
-	for (size_t i = 0; i < size; i++)
+	for (int i = 0; i < (int)size; i++)
 	{
-	if (array[i] == value)
-	{
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-		return (i);
-	}
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		printf("Value checked array[%d] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+		return i;
 	}
 
 	return (-1);
