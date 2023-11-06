@@ -1,3 +1,8 @@
+/*
+ * File: 0-linear.c
+ * Auth: Wilton Mashele
+ */
+
 #include "search_algos.h"
 /**
  * linear_search - Perform a linear search for a value in an integer array.
