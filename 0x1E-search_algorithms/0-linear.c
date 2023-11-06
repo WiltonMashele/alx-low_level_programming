@@ -1,5 +1,4 @@
 #include "search_algos.h"
-
 /**
  * linear_skip - Searches for a value in a sorted singly linked list of integers
  *               using the linear skip algorithm.
@@ -14,17 +13,15 @@
  */
 int linear_search(int *array, size_t size, int value)
 {
-	if (array == NULL)
+	int i;
+
+	if (size == 0 || array == NULL)
 		return (-1);
-
-	size_t i;
-
-	for (i = 0; i < size; i++)
+	for (i = 0; i < (int)size; i++)
 	{
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		printf("Value checked array[%d] = [%d]\n", i, array[i]);
 		if (array[i] == value)
 			return (i);
 	}
-
 	return (-1);
 }
