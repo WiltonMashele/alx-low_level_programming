@@ -8,7 +8,8 @@
  *
  * Return: Index of the found value, or -1 if not found or the array is NULL.
  *
- * Description: Performs an interpolation search on the sorted array of integers.
+ * Description: Performs an interpolation search on the sorted 
+ * array of integers.
  *              Prints values compared during the search.
  */
 int interpolation_search(int *array, size_t size, int value)
@@ -20,7 +21,8 @@ int interpolation_search(int *array, size_t size, int value)
 
 	for (left = 0, right = size - 1; right >= left;)
 	{
-		position = left + (((double)(right - left) / (array[right] - array[left])) * (value - array[left]));
+		position = left + (((double)(right - left) / (array[right] - array[left])) * 
+				(value - array[left]));
 
 		if (position < size)
 			printf("Value checked array[%ld] = [%d]\n", position, array[position]);
