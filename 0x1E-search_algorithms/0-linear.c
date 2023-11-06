@@ -1,7 +1,7 @@
 #include "search_algos.h"
 /**
  * linear_search - Searches for a value in an array
- * 	using the linear search algorithm.
+ *	using the linear search algorithm.
  * @array: Pointer to the array to search.
  * @size: Number of elements in the array.
  * @value: The value to search for.
@@ -10,7 +10,7 @@
  * If not found, return -1.
  *
  * Description: This function iterates through the array,
- * 	printing each compared value.
+ *	printing each compared value.
  */
 int linear_search(int *array, size_t size, int value)
 {
