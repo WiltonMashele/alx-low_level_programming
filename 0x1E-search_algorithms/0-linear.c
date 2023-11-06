@@ -1,25 +1,29 @@
 #include "search_algos.h"
+
 /**
- * linear_search - Perform a linear search for a value in an integer array.
- *
- * @array: Pointer to the first element of the array to search.
- * @size: Number of elements in the array.
+ * linear_skip - Searches for a value in a sorted singly linked list of integers
+ *               using the linear skip algorithm.
+ * @list: A pointer to the head of the linked list to search.
  * @value: The value to search for.
  *
- * Return: Index of the first occurrence of 'value' if found, or -1 if not found.
+ * Return: If the value is not found or the head of the list is NULL, return NULL.
+ *         Otherwise, return a pointer to the first node where the value is found.
  *
- * Description: This function prints each value compared during the search.
+ * Description: This function prints the value every time it is compared in the list
+ *              and uses the square root of the list size as the jump step.
  */
 int linear_search(int *array, size_t size, int value)
 {
-	if (array == NULL || size == 0)
+	if (array == NULL)
 		return (-1);
 
-	for (int i = 0; i < (int)size; i++)
+	size_t i;
+
+	for (i = 0; i < size; i++)
 	{
-		printf("Value checked array[%d] = [%d]\n", i, array[i]);
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		if (array[i] == value)
-		return i;
+			return (i);
 	}
 
 	return (-1);
