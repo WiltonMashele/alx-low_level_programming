@@ -14,28 +14,36 @@
  *
  * Description: Prints the subarray being searched after each change.
  */
-int binary_search_recursive(int *array, size_t left, size_t right, int value)
+int rec_search(int *array, size_t size, int value)
 {
-	if (array == NULL)
+	size_t half = size / 2;
+	size_t i;
+
+	if (array == NULL || size == 0)
 		return (-1);
 
-	if (left <= right)
+	printf("Searching in array");
+
+	for (i = 0; i < size; i++)
+		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
+
+	printf("\n");
+
+	if (half && size % 2 == 0)
+		half--;
+
+	if (value == array[half])
 	{
-		size_t mid = left + (right - left) / 2;
-
-		printf("Searching in array: %d", array[left]);
-		for (size_t i = left + 1; i <= right; i++)
-			printf(", %d", array[i]);
-		printf("\n");
-
-		if (array[mid] == value)
-			return mid;
-		if (array[mid] > value)
-			return binary_search_recursive(array, left, mid - 1, value);
-		return binary_search_recursive(array, mid + 1, right, value);
+		if (half > 0)
+			return (rec_search(array, half + 1, value));
+		return ((int)half);
 	}
 
-	return (-1);
+	if (value < array[half])
+		return (rec_search(array, half + 1, value));
+
+	half++;
+	return (rec_search(array + half, size - half, value) + half);
 }
 
 /**
@@ -53,8 +61,12 @@ int binary_search_recursive(int *array, size_t left, size_t right, int value)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	if (array == NULL || size == 0)
+	int index;
+
+	index = rec_search(array, size, value);
+
+	if (index >= 0 && array[index] != value)
 		return (-1);
 
-	return binary_search_recursive(array, 0, size - 1, value);
+	return (index);
 }
